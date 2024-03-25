@@ -57,6 +57,11 @@ module CommonSem {
 
   //  Comparison operators.
 
+  function BoolToU256(b: bool): u256
+  {
+    if b then 1 else 0
+  }
+
   /**
     *   Unsigned lower than.
     *   @param      x   
@@ -68,6 +73,11 @@ module CommonSem {
     x < y
   }
 
+  function LtU256(x: u256, y: u256): u256
+  {
+    BoolToU256(Lt(x, y))
+  }
+
   /**
     *   Unsigned greater than.
     *   @param      x   
@@ -77,6 +87,11 @@ module CommonSem {
   function Gt(x: u256, y: u256): bool
   {
     x > y
+  }
+
+  function GtU256(x: u256, y: u256): u256
+  {
+    BoolToU256(Gt(x, y))
   }
 
   /**
@@ -92,6 +107,11 @@ module CommonSem {
     lhs < rhs
   }
 
+  function SLtU256(x: u256, y: u256): u256
+  {
+    BoolToU256(SLt(x, y))
+  }
+
   /**
     *   Signed greater than.
     *   @param      x   
@@ -105,6 +125,11 @@ module CommonSem {
     lhs > rhs
   }
 
+  function SGtU256(x: u256, y: u256): u256
+  {
+    BoolToU256(SGt(x, y))
+  }
+
   /**
     *   Equality.
     *   @param      x   
@@ -116,6 +141,11 @@ module CommonSem {
     x == y
   }
 
+  function EqU256(x: u256, y: u256): u256
+  {
+    BoolToU256(Eq(x, y))
+  }
+
   /**
     *   Is zero.
     *   @param      x   
@@ -124,6 +154,11 @@ module CommonSem {
   function IsZero(x: u256): bool
   {
     x == 0
+  }
+
+  function IsZeroU256(x: u256): u256
+  {
+    BoolToU256(IsZero(x))
   }
 
   //    Bitwise operators
